@@ -39,7 +39,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **kofi** -
+ [@unrealkaii](https://github.com/unrealkaii)
 * **Spintronic** -
 * **Chimauche Njoku** - 
 * **nik** - [nikrb](https://github.com/nikrb)
