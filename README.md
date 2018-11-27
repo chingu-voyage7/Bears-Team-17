@@ -39,8 +39,8 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
- [@unrealkaii](https://github.com/unrealkaii)
-* **Spintronic** -
+* **unrealkaii** - [@unrealkaii](https://github.com/unrealkaii)
+* **Andrey Sidorenko** - [@psitronic](https://github.com/psitronic)
 * **Chimauche Njoku** - 
 * **nik** - [nikrb](https://github.com/nikrb)
 
