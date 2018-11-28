@@ -1,0 +1,30 @@
+{
+  "name": "cars",
+  "version": "0.0.1",
+  "description": "cars fault finding app",
+  "engines": {
+    "node": "8.11.x"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "scripts": {
+    "start": "node server",
+    "heroku-postbuild": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon --watch server server",
+    "client": "node start-client.js",
+    "lint": "eslint ."
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "dotenv": "^6.1.0",
+    "nodemon": "^1.18.6"
+  }
+}
