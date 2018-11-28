@@ -41,7 +41,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 * **unrealkaii** - [@unrealkaii](https://github.com/unrealkaii)
 * **Andrey Sidorenko** - [@psitronic](https://github.com/psitronic)
-* **Chimauche Njoku** - 
+* **Chimauche Njoku** - [@Francis-Njoku](https://github.com/Francis-Njoku)
 * **nik** - [nikrb](https://github.com/nikrb)
 
 ## License
