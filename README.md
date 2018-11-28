@@ -7,8 +7,8 @@ clone the repo then `npm install` followed by `npm run dev`
 
 ### Prerequisites
 
-Node 8.11
-mongodb 3.6
+- Node 8.11
+- mongodb 3.6
 
 ### Installation
 
@@ -29,3 +29,27 @@ TODO CI
 ## Contributing
 
 currently, push branches to repo. Default branch develop. CI runs off master to heroku.
+
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+
+## Authors
+
+ [@unrealkaii](https://github.com/unrealkaii)
+* **Spintronic** -
+* **Chimauche Njoku** - 
+* **nik** - [nikrb](https://github.com/nikrb)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to anyone who's code was used
+* Inspiration
+* etc
