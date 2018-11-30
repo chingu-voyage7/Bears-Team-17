@@ -8,8 +8,8 @@ const answerSchema = new Schema({
     text: {type: String, required: true},
     comments: [{type: Schema.Types.ObjectId, ref: 'User'}],
     date: {type: Date, 'default': Date.now},
-    scores: {tyep: Number, 'default': 0},
-    edited: {tyep: Boolean, 'default': false}
+    scores: {type: Number, 'default': 0},
+    edited: {type: Boolean, 'default': false}
 });
 
 // build Answer model

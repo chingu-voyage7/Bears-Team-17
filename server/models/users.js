@@ -7,7 +7,7 @@ const userSchema = new Schema({
     email: {type: String, required: true},
     info:  {type: String},
     password: {type: String, required: true},
-    rate: {tyep: Number, 'default': 0},
+    rate: {type: Number, 'default': 0},
     createdOn: {type: Date, 'default': Date.now}
 });
 
