@@ -5,12 +5,14 @@ if (process.env.NODE_ENV !== 'production') {
 
 const bodyParser = require('body-parser');
 const express = require('express'),
-    app = express(),
-    session = require('express-session');
+  app = express(),
+  session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+
 const db = require('./models/db');
 const user = require('./models/users');
 const question = require('./models/questions');
+const answer = require('./models/answers');
 
 const PORT = process.env.PORT || 3001;
 

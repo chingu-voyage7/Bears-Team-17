@@ -8,13 +8,13 @@ const questionSchema = new Schema({
     info:  {type: String},
     text: {type: String, required: true},
     tags: {type: Array},
-    answers: [Schema.Types.ObjectId],
+    answers: [{type: Schema.Types.ObjectId, ref: 'User'}],
     date: {type: Date, 'default': Date.now},
     scores: {tyep: Number, 'default': 0},
     views: {tyep: Number, 'default': 0},
     edited: {tyep: Boolean, 'default': false}
 });
 
-// build user model
+// build Question model
 const Question = mongoose.model('Question', questionSchema);
 module.exports = Question;

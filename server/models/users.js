@@ -11,24 +11,6 @@ const userSchema = new Schema({
     createdOn: {type: Date, 'default': Date.now}
 });
 
-//check new user
-userSchema.statics.checkUserExists = function(req,res,callback) {
-    User.findOne({email:req.body.signemail}||{username:req.body.signusername})
-    .exec(function(error,user){
-        if (!user){
-            if (req.body.signpassword !== req.body.signpasswordconfirm){
-                var error = new Error("Password in two fields should be the same.");
-                callback(error);
-            } else {
-                callback(null,user);
-            }
-        } else {
-            var error = new Error("User or email already exists");
-            callback(error);
-    }
-})
-}
-
-// build user model
+// build User model
 const User = mongoose.model('User', userSchema);
 module.exports = User;
