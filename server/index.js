@@ -4,9 +4,9 @@ if (process.env.NODE_ENV !== 'production') {
 
 
 const bodyParser = require('body-parser');
-const express = require('express'),
-  app = express(),
-  session = require('express-session');
+const express = require('express');
+const app = express();
+const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
 const db = require('./models/db');
@@ -22,7 +22,7 @@ app.use(session({
   resave: true,
   saveUninitialized: false,
   store: new MongoStore({
-  mongooseConnection: db
+    mongooseConnection: db
   })
 }));
 
