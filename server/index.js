@@ -1,11 +1,14 @@
-if (process.env !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 };
 const bodyParser = require('body-parser');
-const express = require('express');
+const express = require('express'),
+    app = express(),
+    session = require('express-session');
+const db = require('./models/db');
+const users = require('./models/users');
 
 const PORT = process.env.PORT || 3001;
-const app = express();
 
 app.use(bodyParser.json());
 

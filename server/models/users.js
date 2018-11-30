@@ -3,14 +3,14 @@ const Schema = mongoose.Schema;
 
 // user schema
 const userSchema = new Schema({
-    name:  {type: String, required = True},
-    email: {type: String, required = True},
+    name:  {type: String, required: true},
+    email: {type: String, required: true},
     info:  {type: String},
-    password: {type: String, required = True},
-    rate: {tyep: Int},
+    password: {type: String, required: true},
+    rate: {tyep: Number, 'default': 0},
     createdOn: {type: Date, 'default': Date.now}
 });
 
 // build user model
-const User = mongoose.model('User', userSchema);
-module.exports = User;
+const Users = mongoose.model('User', userSchema);
+module.exports = Users;

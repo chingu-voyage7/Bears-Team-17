@@ -1,10 +1,8 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGODB, {useMongoClient: true});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/cars',{ useNewUrlParser: true });
 mongoose.Promise = global.Promise;
-var db = mongoose.connection;
-
-
+const db = mongoose.connection;
 
 //events handlers
 db.on('connected', function () {

@@ -7,7 +7,10 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "connect-mongo": "^2.0.2",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.3.14"
   },
   "scripts": {
     "start": "node server",
