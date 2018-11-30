@@ -1,13 +1,16 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 };
+
+
 const bodyParser = require('body-parser');
 const express = require('express'),
     app = express(),
     session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const db = require('./models/db');
-const users = require('./models/users');
+const user = require('./models/users');
+const question = require('./models/questions');
 
 const PORT = process.env.PORT || 3001;
 

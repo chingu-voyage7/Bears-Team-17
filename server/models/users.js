@@ -30,5 +30,5 @@ userSchema.statics.checkUserExists = function(req,res,callback) {
 }
 
 // build user model
-const Users = mongoose.model('User', userSchema);
-module.exports = Users;
+const User = mongoose.model('User', userSchema);
+module.exports = User;
