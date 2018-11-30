@@ -5,10 +5,21 @@ const bodyParser = require('body-parser');
 const express = require('express'),
     app = express(),
     session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const db = require('./models/db');
 const users = require('./models/users');
 
 const PORT = process.env.PORT || 3001;
+
+// create a session with a session ID
+app.use(session({
+  secret: process.env.SECRET,
+  resave: true,
+  saveUninitialized: false,
+  store: new MongoStore({
+  mongooseConnection: db
+  })
+}));
 
 app.use(bodyParser.json());
 
