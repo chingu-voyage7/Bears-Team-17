@@ -3,9 +3,6 @@
   "env": { "browser": true, "jest": true, "node": true },
   "parser": "babel-eslint",
   "plugins": ["babel", "react"],
-  "ecmaFeatures": {
-    "jsx": true
-  },
   "rules": {
     "arrow-parens": "off",
     "babel/semi": 1,
