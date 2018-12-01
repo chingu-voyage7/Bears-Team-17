@@ -6,8 +6,6 @@ if (process.env.NODE_ENV !== 'production') {
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
 
 const db = require('./models/db');
 const user = require('./models/users');
@@ -15,16 +13,6 @@ const question = require('./models/questions');
 const answer = require('./models/answers');
 
 const PORT = process.env.PORT || 3001;
-
-// create a session with a session ID
-app.use(session({
-  secret: process.env.SECRET,
-  resave: true,
-  saveUninitialized: false,
-  store: new MongoStore({
-    mongooseConnection: db
-  })
-}));
 
 app.use(bodyParser.json());
 
