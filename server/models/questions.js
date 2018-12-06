@@ -8,7 +8,7 @@ const questionSchema = new Schema({
     info:  {type: String},
     text: {type: String, required: true},
     tags: {type: Array},
-    answers: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    answers: [{type: Schema.Types.ObjectId, ref: 'Answer'}],
     date: {type: Date, 'default': Date.now},
     scores: {type: Number, 'default': 0},
     views: {type: Number, 'default': 0},
