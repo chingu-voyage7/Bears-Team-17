@@ -1,5 +1,6 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+
+const { Schema } = mongoose;
 
 // question schema
 const questionSchema = new Schema({
@@ -12,7 +13,7 @@ const questionSchema = new Schema({
     date: {type: Date, 'default': Date.now},
     scores: {type: Number, 'default': 0},
     views: {type: Number, 'default': 0},
-    edited: {type: Boolean, 'default': false}
+    edited: {type: Boolean, 'default': false},
 });
 
 // build Question model
