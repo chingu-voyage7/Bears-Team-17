@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MyComponent = () => (
-  <div data-testid='my_component_test_id' >
+  <div>
     MyComponent Text
   </div>
 );
