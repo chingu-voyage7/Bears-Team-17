@@ -19,7 +19,8 @@
     "lint:be": "eslint server",
     "lint:fe": "eslint client/src",
     "lint": "npm run lint:be && npm run lint:fe",
-    "test:fe": "cd client && npm test"
+    "test:fe": "cd client && npm test",
+    "test": "npm run test:fe"
   },
   "cacheDirectories": [
     "node_modules",
