@@ -5,7 +5,7 @@ import MyComponent from './MyComponent';
 describe('MyComponent', () => {
   it('renders MyComponent', () => {
     const { getByText } = render(<MyComponent />);
-    const text = getByText('MyComponent Text');
+    const text = getByText('Click Me');
     expect(text).toBeDefined();
   });
 });
