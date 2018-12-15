@@ -25,6 +25,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@react-mock/fetch": "^0.3.0",
     "react-testing-library": "^5.3.2"
   }
 }
