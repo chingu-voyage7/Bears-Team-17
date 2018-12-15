@@ -6,7 +6,8 @@ const PrimaryButton = styled.button`
   border-radius: 5px;
   border-color: #5b5;
   margin: 0;
-  padding: 6px 12px;
+  padding: 0.4em 0.8em;
+  line-height: 1.5em;
 `;
 
 export default PrimaryButton;
