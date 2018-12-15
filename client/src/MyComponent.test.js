@@ -4,7 +4,8 @@ import MyComponent from './MyComponent';
 
 describe('MyComponent', () => {
   it('renders MyComponent', () => {
-    const { getByText } = render(<MyComponent />);
+    const { container, getByText } = render(<MyComponent />);
+    expect(container.firstChild).toMatchSnapshot();
     const text = getByText('Click Me');
     expect(text).toBeDefined();
   });
