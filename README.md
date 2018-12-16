@@ -20,7 +20,13 @@ clone the repo then `npm install` followed by `npm run dev`
 
 ## Running the Tests
 
-TODO
+Create a .env.test file:
+
+1. `cp sample.env .env.test`
+2. change `NODE_ENV` to test
+3. change mongodb uri (optional)
+
+Run tests: `npm run test:fe`
 
 ## Deployment
 

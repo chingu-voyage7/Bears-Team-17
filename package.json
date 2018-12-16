@@ -18,7 +18,8 @@
     "client": "node start-client.js",
     "lint:be": "eslint server",
     "lint:fe": "eslint client/src",
-    "lint": "npm run lint:be && npm run lint:fe"
+    "lint": "npm run lint:be && npm run lint:fe",
+    "test:fe": "cd client && npm test"
   },
   "cacheDirectories": [
     "node_modules",
@@ -29,7 +30,7 @@
     "babel-eslint": "^9.0.0",
     "concurrently": "^4.1.0",
     "dotenv": "^6.1.0",
-    "eslint": "^5.9.0",
+    "eslint": "5.6.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-react-app": "^3.0.5",
     "eslint-plugin-babel": "^5.3.0",

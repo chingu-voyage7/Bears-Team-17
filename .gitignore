@@ -3,4 +3,4 @@ npm-debug.log
 client/build
 bakup
 *.log*
-.env
+.env*
