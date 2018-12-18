@@ -14,5 +14,5 @@ const answerSchema = new Schema({
 });
 
 // build Answer model
-const Answer = mongoose.model('Answer', answerSchema);
-module.exports = Answer;
+const Answers = mongoose.model('Answer', answerSchema);
+module.exports = Answers;
