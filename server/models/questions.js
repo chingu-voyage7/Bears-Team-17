@@ -5,11 +5,10 @@ const { Schema } = mongoose;
 // question schema
 const questionSchema = new Schema({
   title: { type: String, required: true },
-  author: { type: Schema.Types.ObjectId, ref: 'User' },
-  info: { type: String },
+  author: { type: Schema.Types.ObjectId, ref: 'Users' },
   text: { type: String, required: true },
   tags: { type: Array },
-  answers: [{ type: Schema.Types.ObjectId, ref: 'Answer' }],
+  answers: [{ type: Schema.Types.ObjectId, ref: 'Answers' }],
   date: { type: Date, default: Date.now },
   scores: { type: Number, default: 0 },
   views: { type: Number, default: 0 },
