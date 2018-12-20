@@ -1,6 +1,5 @@
 const express = require('express');
 const Questions = require('../models/questions');
-const db = require('../models/db');
 
 const api = express.Router();
 
