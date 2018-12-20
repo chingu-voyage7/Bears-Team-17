@@ -14,11 +14,12 @@ api.post('/postQuestion', (req, res) => {
       text: parsedQuestion.messageText,
       tags: parsedQuestion.messageTags,
     };
-    Questions.create(newQuestion, (error, questionPosted) => {
+    Questions.create(newQuestion, (error, doc) => {
       if (!error) {
         res.json({
           success: true,
-          message: 'Question posted'
+          message: 'Question posted',
+          question: doc
         });
       } else {
         res.json({
