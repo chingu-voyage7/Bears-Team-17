@@ -5,7 +5,7 @@ const db = require('../models/db');
 const api = express.Router();
 
 // post question
-api.post('/postQuestion', (req, res) => {
+api.post('/question', (req, res) => {
   if (req.body.question) {
     const parsedQuestion = JSON.parse(req.body.question);
     const newQuestion = {
