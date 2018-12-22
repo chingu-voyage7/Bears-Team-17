@@ -1,5 +1,6 @@
 const express = require('express');
 const Questions = require('../models/questions');
+const Users = require('../models/users');
 
 const api = express.Router();
 
@@ -28,6 +29,20 @@ api.post('/question', (req, res) => {
       }
     });
   }
+});
+
+// get question
+api.get('/question', (req, res) => {
+  Questions.find({})
+    .sort('views')
+    .populate('author', 'name')
+    .exec((err, docs) => {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(docs);
+      }
+    });
 });
 
 module.exports = api;
