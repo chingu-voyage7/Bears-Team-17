@@ -16,10 +16,10 @@ const questionSchema = new Schema({
   edited: { type: Boolean, default: false },
 });
 
-questionSchema.statics.getQuestions = function getQuestions(sortby) {
+questionSchema.statics.getQuestions = function getQuestions(query) {
   return new Promise((resolve, reject) => {
     this.find({})
-      .sort(sortby)
+      .sort([[query.sortby, query.order]])
       .populate('author', 'name')
       .exec((err, docs) => {
         if (err) {

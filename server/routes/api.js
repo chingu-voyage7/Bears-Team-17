@@ -33,21 +33,29 @@ api.post('/question', (req, res) => {
 
 // get question
 api.get('/question', (req, res) => {
-  let sortby = '';
+  const query = {
+    sortby: '',
+    order: 1
+  };
   switch (req.query.sortby) {
     case 'views':
-      sortby = 'views';
+      query.sortby = 'views';
       break;
     case 'scores':
-      sortby = 'scores';
+      query.sortby = 'scores';
       break;
     case 'n_answers':
-      sortby = 'n_answers';
+      query.sortby = 'n_answers';
       break;
     default:
-      sortby = 'date';
+      query.sortby = 'date';
   }
-  Questions.getQuestions(sortby)
+  if (!req.query.order) {
+    query.order = -1;
+  } else {
+    query.order = req.query.order;
+  }
+  Questions.getQuestions(query)
     .then(docs => {
       res.json(docs);
     })
