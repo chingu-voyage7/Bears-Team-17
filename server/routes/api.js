@@ -47,15 +47,12 @@ api.get('/question', (req, res) => {
     default:
       sortby = 'date';
   }
-  Questions.find({})
-    .sort(sortby)
-    .populate('author', 'name')
-    .exec((err, docs) => {
-      if (err) {
-        res.json(err);
-      } else {
-        res.json(docs);
-      }
+  Questions.getQuestions(sortby)
+    .then(docs => {
+      res.json(docs);
+    })
+    .catch(err => {
+      res.json(err);
     });
 });
 

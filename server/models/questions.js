@@ -16,6 +16,19 @@ const questionSchema = new Schema({
   edited: { type: Boolean, default: false },
 });
 
+questionSchema.statics.getQuestions = function getQuestions(sortby) {
+  return new Promise((resolve, reject) => {
+    this.find({})
+      .sort(sortby)
+      .populate('author', 'name')
+      .exec((err, docs) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(docs);
+      });
+  });
+};
+
 // build Question model
-const Questions = mongoose.model('Question', questionSchema);
-module.exports = Questions;
+module.exports = mongoose.model('Question', questionSchema);
