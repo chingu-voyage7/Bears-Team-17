@@ -34,8 +34,8 @@ api.post('/question', (req, res) => {
 // get question
 api.get('/question', (req, res) => {
   const query = {
-    sortby: '',
-    order: 1
+    sortby: 'date',
+    order: -1
   };
   switch (req.query.sortby) {
     case 'views':
@@ -50,10 +50,12 @@ api.get('/question', (req, res) => {
     default:
       query.sortby = 'date';
   }
-  if (!req.query.order) {
-    query.order = -1;
-  } else {
-    query.order = req.query.order;
+  switch (req.query.order) {
+    case '1':
+      query.order = req.query.order;
+      break;
+    default:
+      query.order = -1;
   }
   Questions.getQuestions(query)
     .then(docs => {
