@@ -42,7 +42,7 @@ api.get('/question', (req, res) => {
       sortby = 'scores';
       break;
     case 'n_answers':
-      sortby = 'scores';
+      sortby = 'n_answers';
       break;
     default:
       sortby = 'date';
