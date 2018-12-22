@@ -33,8 +33,22 @@ api.post('/question', (req, res) => {
 
 // get question
 api.get('/question', (req, res) => {
+  let sortby = '';
+  switch (req.query.sortby) {
+    case 'views':
+      sortby = 'views';
+      break;
+    case 'scores':
+      sortby = 'scores';
+      break;
+    case 'n_answers':
+      sortby = 'scores';
+      break;
+    default:
+      sortby = 'date';
+  }
   Questions.find({})
-    .sort('views')
+    .sort(sortby)
     .populate('author', 'name')
     .exec((err, docs) => {
       if (err) {
