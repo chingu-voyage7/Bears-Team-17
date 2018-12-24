@@ -5,7 +5,6 @@ const { Schema } = mongoose;
 // answer schema
 const answerSchema = new Schema({
   author: { type: Schema.Types.ObjectId, ref: 'Users' },
-  info: { type: String },
   text: { type: String, required: true },
   comments: { type: Array },
   date: { type: Date, default: Date.now },

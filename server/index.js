@@ -5,8 +5,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 const bodyParser = require('body-parser');
 const express = require('express');
-const apis = require('./routes/api');
 const mongoose = require('mongoose');
+const apis = require('./routes/api');
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
