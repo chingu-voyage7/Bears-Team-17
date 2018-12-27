@@ -2,7 +2,6 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
-
 const bodyParser = require('body-parser');
 const express = require('express');
 const apis = require('./routes/api');
@@ -18,16 +17,15 @@ app.use('/test', (req, res) => {
 
 // Express only serves static assets in production
 if (process.env.NODE_ENV === 'production') {
-  app.use('/', express.static('client/build'));
+  app.use('/', express.static(__dirname + '/../client/build'));
 
   app.get('*', (req, res) => {
-    res.sendFile('client/build/index.html');
+    res.sendFile(__dirname + '/../client/build/index.html');
   });
 } else {
-  app.use(express.static('../client/build'));
   // Always return the main index.html, so react-router render the route in the client
   app.get('*', (req, res) => {
-    res.sendFile('../client/build/index.html');
+    res.sendFile(__dirname + '/../client/public/index.html');
   });
 }
 
