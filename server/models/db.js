@@ -1,29 +1,32 @@
 /* eslint-disable no-console */
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
-const db = mongoose.connection;
 
-// events handlers
-db.on('connected', () => {
+async function init() {
+  console.log(`mongo uri [${process.env.MONGODB_URI}]`);
+  const db = await mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
   console.log('connected to db');
-});
+  // events handlers
+  db.connection.on('error', err => {
+    console.log(`connection error: ${err}`);
+  });
 
-db.on('error', err => {
-  console.log(`connection error: ${err}`);
-});
+  db.connection.on('disconnected', () => {
+    console.log('disconnected');
+  });
+};
 
-db.on('disconnected', () => {
-  console.log('disconnected');
-});
+async function close() {
+  await mongoose.connection.close();
+}
 
 // tidy up connections
 process.on('SIGINT', () => {
-  db.close(() => {
+  mongoose.connection.close(() => {
     console.log('disconnected through app termination');
     process.exit(0);
   });
 });
 
-module.exports = db;
+module.exports = { init, close };
