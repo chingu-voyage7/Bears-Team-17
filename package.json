@@ -20,7 +20,9 @@
     "lint:fe": "eslint client/src",
     "lint": "npm run lint:be && npm run lint:fe",
     "test:fe": "cd client && npm test",
-    "test": "mocha server/test/setup.js --recursive server/**/*.test.js"
+    "test:fe:ci": "cd client && CI=TRUE npm test",
+    "test:be": "mocha server/test/setup.js --recursive server/**/*.test.js",
+    "test": "npm run test:be && npm run test:fe:ci"
   },
   "cacheDirectories": [
     "node_modules",
