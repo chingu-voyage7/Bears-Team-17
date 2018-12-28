@@ -13,9 +13,9 @@ async function init() {
   });
 
   db.connection.on('disconnected', () => {
-    console.log('disconnected');
+    console.log('disconnected from db');
   });
-};
+}
 
 async function close() {
   await mongoose.connection.close();
