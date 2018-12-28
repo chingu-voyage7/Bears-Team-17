@@ -1,10 +1,11 @@
-require('.dotenv').config({ path: '.env.test' });
-const server = require('../server');
+require('dotenv').config({ path: '.env.test' });
+const db = require('../models/db');
 
 before(async () => {
-  await server.init();
+  await db.init();
 });
 
 after(async () => {
-  await server.stop();
+  await db.close();
 });
+
