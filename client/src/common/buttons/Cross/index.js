@@ -12,6 +12,7 @@ const Cross = styled.button`
   margin: 0;
   padding: 0.3em 0.3em;
   line-height: 0.9em;
+  outline: none;
 `;
 
 const CrossButton = ({ onClick }) => (
