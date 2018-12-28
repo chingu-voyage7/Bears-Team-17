@@ -10,6 +10,6 @@ const db = require('./models/db');
 db.init();
 
 app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log('app server listening on port:', port);
 });
-

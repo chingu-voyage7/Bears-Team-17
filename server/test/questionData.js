@@ -6,4 +6,3 @@ module.exports = [{
   text: 'second question text',
 },
 ];
-

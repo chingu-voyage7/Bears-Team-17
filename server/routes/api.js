@@ -1,20 +1,14 @@
 const express = require('express');
 const Questions = require('../models/questions');
-const Users = require('../models/users');
 
 const api = express.Router();
 
 // post question
 api.post('/question', (req, res) => {
   if (req.body.question) {
-    const parsedQuestion = JSON.parse(req.body.question);
-    const newQuestion = {
-      author: parsedQuestion.messageAuthor,
-      title: parsedQuestion.messageTitle,
-      text: parsedQuestion.messageText,
-      tags: parsedQuestion.messageTags,
-    };
-    Questions.create(newQuestion, (error, doc) => {
+    // const parsedQuestion = JSON.parse(req.body.question);
+    const { question } = req.body;
+    Questions.create(question, (error, doc) => {
       if (!error) {
         res.json({
           success: true,
