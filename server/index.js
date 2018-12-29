@@ -5,15 +5,43 @@ if (process.env.NODE_ENV !== 'production') {
 
 const bodyParser = require('body-parser');
 const express = require('express');
+const apis = require('./routes/api');
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+mongoose.Promise = global.Promise;
+const db = mongoose.connection;
 
 const app = express();
 
 const PORT = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
-
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use('/api', apis);
 app.use('/test', (req, res) => {
   res.json({ success: true, message: 'OK' });
+});
+
+// db events handlers
+db.on('connected', () => {
+  console.log('connected to db');
+});
+
+db.on('error', err => {
+  console.log(`connection error: ${err}`);
+});
+
+db.on('disconnected', () => {
+  console.log('disconnected');
+});
+
+// tidy up connections
+process.on('SIGINT', () => {
+  db.close(() => {
+    console.log('disconnected through app termination');
+    process.exit(0);
+  });
 });
 
 // Express only serves static assets in production
