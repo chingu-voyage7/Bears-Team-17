@@ -7,5 +7,10 @@ exports[`MyComponent renders MyComponent 1`] = `
   >
     Click Me
   </button>
+  <button
+    class="sc-bwzfXH ghcSWb"
+  >
+    ⨯
+  </button>
 </div>
 `;
