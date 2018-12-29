@@ -10,28 +10,33 @@ const userData = require('../test/userData');
 
 const createQuestion = author => question => ({ ...question, author });
 
-// eslint-disable-next-line no-undef
-before(async () => {
-  await User.deleteMany({});
-  await Question.deleteMany({});
-});
-
-beforeEach(async () => {
-  const user = new User(userData[0]);
-  await user.save();
-  const makeQuestion = createQuestion(user._id);
-  const questions = questionData.map(qd => new Question(makeQuestion(qd)));
-  try {
-    questions.forEach(async q => q.save());
-  } catch (e) {
-    // eslint-disable-next-line no-console
-    console.error('error creating question:', e);
-  }
-});
-
-afterEach(async () => Question.deleteMany({}));
-
 describe('get question api', () => {
+  let user;
+  // eslint-disable-next-line no-undef
+  before(async () => {
+    await User.deleteMany({});
+    await Question.deleteMany({});
+    user = new User(userData[0]);
+    await user.save();
+  });
+
+  // eslint-disable-next-line no-undef
+  beforeEach(async () => {
+    const makeQuestion = createQuestion(user._id);
+    const questions = questionData.map(qd => new Question(makeQuestion(qd)));
+    try {
+      questions.forEach(async q => q.save());
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error('error creating question:', e);
+    }
+  });
+
+  // eslint-disable-next-line no-undef
+  afterEach(async () => Question.deleteMany({}));
+  // eslint-disable-next-line no-undef
+  after(async () => User.deleteMany());
+
   it('should get all questions', () => request(app)
     .get('/api/question')
     .set('Accept', 'application/json')

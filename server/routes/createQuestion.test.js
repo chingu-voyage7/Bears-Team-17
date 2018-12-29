@@ -8,25 +8,20 @@ const questionData = require('../test/questionData');
 const User = require('../models/users');
 const userData = require('../test/userData');
 
-let user; // test user
-
-// eslint-disable-next-line no-undef
-before(async () => {
-  await User.deleteMany();
-  await Question.deleteMany();
-});
-beforeEach(async () => {
-  user = new User(userData[0]);
-  await user.save();
-});
-
-// eslint-disable-next-line no-undef
-afterEach(async () => {
-  await User.deleteMany();
-  await Question.deleteMany();
-});
-
 describe('create question api', () => {
+  let user; // test user
+  // eslint-disable-next-line no-undef
+  before(async () => {
+    await User.deleteMany();
+    await Question.deleteMany();
+    user = new User(userData[0]);
+    await user.save();
+  });
+  // eslint-disable-next-line no-undef
+  after(async () => {
+    await User.deleteMany();
+    await Question.deleteMany();
+  });
   it('should create a new question', () => request(app)
     .post('/api/question')
     .send({ question: { ...questionData[0], author: user._id } })
