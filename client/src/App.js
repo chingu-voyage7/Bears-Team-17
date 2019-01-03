@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MyComponent from './MyComponent';
 
 class App extends Component {
   state = {
@@ -15,10 +16,15 @@ class App extends Component {
     const { testok } = this.state;
     return (
       <div className="App">
-        {testok
-          ? <p>backend is responding</p>
-          : <p>waiting for backend response</p>
-        }
+        <div>
+          {testok
+            ? <p>backend is responding</p>
+            : <p>waiting for backend response</p>
+          }
+        </div>
+        <div>
+          <MyComponent />
+        </div>
       </div>
     );
   }
