@@ -1,6 +1,7 @@
 import React from 'react'
 
 import PrimaryButton from '../common/buttons/Primary';
+import { saveQuestion } from './actions';
 import {
   FormArea,
   FormBlock,
@@ -12,24 +13,27 @@ import {
 class Question extends React.Component {
   state = {
     title: "",
-    description: "",
+    text: "",
   };
   onChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value })
   };
-  onSubmit = () => {
-    console.log('submit state:', this.state);
+  onSubmit = e => {
+    e.preventDefault();
+    const { title, text } = this.state;
+    saveQuestion({ title, text });
   };
   render () {
     return (
-      <FormBlock>
-        <FormLabel forHtml="title" >Title</FormLabel>
-        <FormInput name="title" onChange={this.onChange} type="text" ></FormInput>
-        <FormLabel forHtml="description" >Description</FormLabel>
+      <FormBlock action="">
+        <FormLabel htmlFor="title" >Title</FormLabel>
+        <FormInput id="title" name="title" onChange={this.onChange} type="text" ></FormInput>
+        <FormLabel htmlFor="text" >Description</FormLabel>
         <FormArea
+          name="text"
+          id="text"
           cols="60"
-          name="description"
           onChange={this.onChange}
           rows="8"
         >
