@@ -55,7 +55,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('../client/build'));
   // Always return the main index.html, so react-router render the route in the client
   app.get('*', (req, res) => {
-    res.sendFile('../client/build/index.html');
+    res.sendFile(__dirname+'/../client/build/index.html');
   });
 }
 
