@@ -1,13 +1,12 @@
 const express = require('express');
 const Questions = require('../models/questions');
-const Users = require('../models/users');
 
 const api = express.Router();
 
 // post question
 api.post('/question', (req, res) => {
   if (req.body) {
-    const newQuestion = {...req.body};
+    const newQuestion = { ...req.body };
     Questions.create(newQuestion, (error, doc) => {
       if (!error) {
         res.json({

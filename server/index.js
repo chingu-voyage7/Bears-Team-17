@@ -1,12 +1,13 @@
-/* eslint-disable global-require, import/no-extraneous-dependencies */
+/* eslint-disable global-require, import/no-extraneous-dependencies, no-console */
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
 const bodyParser = require('body-parser');
 const express = require('express');
-const apis = require('./routes/api');
 const mongoose = require('mongoose');
+
+const apis = require('./routes/api');
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
@@ -55,7 +56,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('../client/build'));
   // Always return the main index.html, so react-router render the route in the client
   app.get('*', (req, res) => {
-    res.sendFile(__dirname+'/../client/build/index.html');
+    res.sendFile(`${__dirname}/../client/build/index.html`);
   });
 }
 
