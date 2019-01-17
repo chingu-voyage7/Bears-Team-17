@@ -7,7 +7,7 @@ import * as actions from './actions';
 afterEach(() => cleanup());
 
 describe('Question entry form', () => {
-  it.only('should request question save', () => {
+  it('should request question save', () => {
     actions.saveQuestion = jest.fn();
     const { getByLabelText, getByText } = render(<EntryForm />);
     const qentry = getByLabelText('Title');
