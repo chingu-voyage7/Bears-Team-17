@@ -52,10 +52,10 @@ api.get('/question', (req, res) => {
   }
   Questions.getQuestions(query)
     .then(docs => {
-      res.json(docs);
+      res.json({ success: true, docs });
     })
     .catch(err => {
-      res.json(err);
+      res.json({ success: false, err });
     });
 });
 
