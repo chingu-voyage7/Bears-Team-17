@@ -20,7 +20,9 @@
     "lint:fe": "eslint client/src",
     "lint": "npm run lint:be && npm run lint:fe",
     "test:fe": "cd client && npm test",
-    "test": "npm run test:fe"
+    "test:fe:ci": "cd client && CI=TRUE npm test",
+    "test:be": "mocha server/test/setup.js --recursive server/**/*.test.js",
+    "test": "npm run test:be && npm run test:fe:ci"
   },
   "cacheDirectories": [
     "node_modules",
@@ -39,6 +41,8 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
-    "nodemon": "^1.18.6"
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.6",
+    "supertest": "^3.3.0"
   }
 }
