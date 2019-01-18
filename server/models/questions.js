@@ -17,6 +17,11 @@ const questionSchema = new Schema({
 });
 
 questionSchema.statics.getQuestions = function getQuestions(query) {
+  return this
+    .find()
+    .sort({ [query.sortby]: query.order });
+};
+questionSchema.statics.oldgetQuestions = function getQuestions(query) {
   return new Promise((resolve, reject) => {
     this.find({})
       .sort([[query.sortby, query.order]])

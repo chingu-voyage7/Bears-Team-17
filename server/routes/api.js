@@ -51,8 +51,8 @@ api.get('/question', (req, res) => {
       query.order = -1;
   }
   Questions.getQuestions(query)
-    .then(docs => {
-      res.json({ success: true, docs });
+    .then(list => {
+      res.json({ success: true, list });
     })
     .catch(err => {
       res.json({ success: false, err });
