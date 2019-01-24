@@ -22,7 +22,7 @@ class Question extends React.Component {
   onSubmit = e => {
     e.preventDefault();
     const { title, text } = this.state;
-    saveQuestion({ title, text });
+    saveQuestion({ question: { title, text } });
   };
   render () {
     return (
