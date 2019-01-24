@@ -5,9 +5,10 @@ const api = express.Router();
 
 // post question
 api.post('/question', (req, res) => {
-  if (req.body) {
-    const newQuestion = { ...req.body };
-    Questions.create(newQuestion, (error, doc) => {
+  if (req.body.question) {
+    // const parsedQuestion = JSON.parse(req.body.question);
+    const { question } = req.body;
+    Questions.create(question, (error, doc) => {
       if (!error) {
         res.json({
           success: true,
