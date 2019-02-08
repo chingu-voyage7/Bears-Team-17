@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import MyComponent from './MyComponent';
+
+import Question from './question';
 
 class App extends Component {
-  state = {
-    testok: false,
-  };
   componentDidMount() {
     fetch('/test')
     .then(res => res.json())
@@ -13,17 +11,11 @@ class App extends Component {
     });
   }
   render() {
-    const { testok } = this.state;
     return (
       <div className="App">
+        <h2>Question Entry</h2>
         <div>
-          {testok
-            ? <p>backend is responding</p>
-            : <p>waiting for backend response</p>
-          }
-        </div>
-        <div>
-          <MyComponent />
+          <Question />
         </div>
       </div>
     );

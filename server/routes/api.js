@@ -22,6 +22,8 @@ api.post('/question', (req, res) => {
         });
       }
     });
+  } else {
+    res.json({ success: false, message: 'No question' });
   }
 });
 
