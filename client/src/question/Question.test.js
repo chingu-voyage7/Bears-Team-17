@@ -18,9 +18,9 @@ describe('Question entry form', () => {
     expect(dentry.value).toBe('test description');
     const submit = getByText('Submit');
     submit.click();
-    expect(actions.saveQuestion).toBeCalledWith({
+    expect(actions.saveQuestion).toBeCalledWith({ question: {
       title: 'test title',
       text: 'test description',
-    });
+    } });
   });
 });
