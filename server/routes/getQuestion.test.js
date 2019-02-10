@@ -43,7 +43,8 @@ describe('get question api', () => {
     .expect('Content-Type', /json/)
     .expect(200)
     .then(res => {
-      assert(res.body.length === 2, `incorrect question count [${res.body.length}]`);
+      assert(res.body.success, `Failed to request questions: ${res.body.err}`);
+      assert(res.body.list.length === 2, `incorrect question count [${res.body.length}]`);
     })
   );
 });

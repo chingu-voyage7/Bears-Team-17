@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import Question from './question';
+// import EntryForm from './question';
+import { List } from './question';
 
 class App extends Component {
   componentDidMount() {
@@ -15,7 +16,7 @@ class App extends Component {
       <div className="App">
         <h2>Question Entry</h2>
         <div>
-          <Question />
+          <List />
         </div>
       </div>
     );

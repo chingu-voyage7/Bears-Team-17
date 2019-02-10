@@ -1,15 +1,15 @@
 import React from 'react';
 import { cleanup, fireEvent, render } from 'react-testing-library';
 
-import Question from '.';
+import EntryForm from '.';
 import * as actions from './actions';
 
 afterEach(() => cleanup());
 
-describe('Question', () => {
-  it.only('should request question save', () => {
+describe('Question entry form', () => {
+  it('should request question save', () => {
     actions.saveQuestion = jest.fn();
-    const { getByLabelText, getByText } = render(<Question />);
+    const { getByLabelText, getByText } = render(<EntryForm />);
     const qentry = getByLabelText('Title');
     fireEvent.change(qentry, { target: { value: 'test title' }});
     expect(qentry.value).toBe('test title');
@@ -24,4 +24,3 @@ describe('Question', () => {
     } });
   });
 });
-

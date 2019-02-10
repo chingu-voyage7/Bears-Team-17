@@ -11,15 +11,11 @@ export const saveQuestion = question =>
     console.log('save question results');
   });
 
-  export const getQuestions = () => {
-    fetch('/api/question', {
-      method: 'get',
-      headers: {
-        accept: 'application/json',
-        'content-type': 'application/json',
-      },
-    }).then(res => res.json())
-      .then(res => {
-        console.log('get question response:', res);
-      });
-  };
+export const getQuestions = () =>
+  fetch('/api/question', {
+    method: 'get',
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/json',
+    },
+  }).then(res => res.json());
